@@ -62,11 +62,13 @@ INSTALLATION
 ================
 
 - sampctl:
-	sampctl package install DentisT-SAMP/Sa-mpEx
+
+		sampctl package install DentisT-SAMP/Sa-mpEx
 
 - Without sampctl:
 * Place SAMPEX.inc and SAMPEX folder into /pawno/includes/ and
 then include it in your code typing:
+
 	#include <SAMPEX>
 
 TESTING
