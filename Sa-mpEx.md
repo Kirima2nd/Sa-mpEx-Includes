@@ -93,46 +93,6 @@ Operation functions:
 - sampex_setnegative
 - sampex_setpositive
 
-**Playerdata**
-
-*s_dhash*
-
-Login functions:
-
-- sampex_login
-- sampex_dataload
-- sampex_checklogfile
-- sampex_datapwcheck
-- sampex_loginfailed
-
-Dialog functions (included in login funcs):
-
-- sampex_regdialog
-- sampex_logdialog
-
-Register functions:
-
-- sampex_register
-
-Saving data functions:
-
-- sampex_saveplayerdata
-- sampex_updatedeathinfo
-- sampex_regdata
-
-*s_bcrypt*
-
-Main functions:
-
-- sampex_playerpwchecked
-- sampex_playerpwhashed
-- sampex_gethash
-- sampex_verifyhash
-
-Extra functions:
-
-- sampex_bhash
-
 **Streamer**
 
 Object functions:
