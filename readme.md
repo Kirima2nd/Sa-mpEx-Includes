@@ -9,13 +9,13 @@ FUNCTION LIST
 ================
 
 - Get list of Sa-mpEx functions here: 
-[Functions](https://github.com/DentisT-SAMP/Sa-mpEx/blob/main/Sa-mpEx.md)
+[Functions](Sa-mpEx.md)
 
 EXAMPLES
 ============
 
 - See Sa-mpEx gamemode script example here:
-[Examples](gamemdoes\Sa-mpEx.pwn)
+[Examples](gamemdoes/Sa-mpEx.pwn)
 
 HASHING SYSTEM
 =================
