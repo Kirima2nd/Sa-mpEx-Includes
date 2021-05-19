@@ -73,3 +73,10 @@ public OnGameModeExit()
 	sampex_mysqlclose();
 	return 1;
 }
+
+sampex_cmd:test(playerid,strings[])
+{
+	sampex_sendclientmessage(playerid,-1,"One little test with: %s",sampex_pname(playerid));
+	return 1;
+}
+
