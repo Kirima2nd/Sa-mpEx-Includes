@@ -1,0 +1,19 @@
+site: ""
+user: DentisT-SAMP
+repo: Sa-mpEx-Includes
+entry: gamemodes/Sa-mpEx.pwn
+output: gamemodes/Sa-mpEx.amx
+dependencies:
+- sampctl/samp-stdlib
+- samp-incognito/samp-streamer-plugin
+- mysql
+- Sreyas-Sreelal/samp-bcrypt
+local: true
+runtime:
+  version: 0.3.7
+  mode: server
+  rcon_password: sampex_changeme
+  port: 7777
+  hostname: SA-MP Server
+  maxplayers: 50
+  language: ""

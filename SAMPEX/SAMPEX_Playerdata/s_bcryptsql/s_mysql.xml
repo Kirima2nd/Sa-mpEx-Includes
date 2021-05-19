@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="file:///F|/SAMPEX/pawno/xml/pawndoc.xsl" type="text/xsl"?>
+<doc source="F:\SAMPEX\pawno\include\github_repo\SAMPEX\SAMPEX_Playerdata\s_bcryptsql\s_mysql.inc">
+	<assembly>
+		<name>s_mysql.inc</name>
+	</assembly>
+	<members>
+
+		<!-- enumerations -->
+
+		<!-- constants -->
+		<member name="C:false" value="0">
+			<tagname value="bool"/>
+			<referrer name="OnPlayerPasswordHashed"/>
+			<referrer name="OnAccountLoad"/>
+		</member>
+
+		<!-- variables -->
+		<member name="F:__date">
+		</member>
+		<member name="F:__file">
+		</member>
+		<member name="F:__time">
+		</member>
+		<member name="F:gSQLHandle">
+			<tagname value="MySQL"/>
+			<referrer name="OnPlayerCheck"/>
+			<referrer name="OnPlayerPasswordHashed"/>
+		</member>
+		<member name="F:g_MysqlRaceCheck">
+			<referrer name="OnPlayerCheck"/>
+			<referrer name="OnMySQLResponse"/>
+		</member>
+
+		<!-- functions -->
+		<member name="M:Kick" syntax="Kick()">
+			<stacksize value="1"/>
+			<referrer name="OnMySQLResponse"/>
+		</member>
+		<member name="M:OnAccountLoad" syntax="OnAccountLoad(playerid)">
+			<attribute name="public"/>
+			<stacksize value="16"/>
+			<referrer name="OnPlayerPasswordChecked"/>
+			<dependency name="SetSpawnInfo"/>
+			<dependency name="TogglePlayerSpectating"/>
+			<dependency name="false"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnMySQLResponse" syntax="OnMySQLResponse(playerid, race_check)">
+			<attribute name="public"/>
+			<stacksize value="7"/>
+			<dependency name="Kick"/>
+			<dependency name="ShowPlayerDialog"/>
+			<dependency name="cache_num_rows"/>
+			<dependency name="g_MysqlRaceCheck"/>
+			<dependency name="sampex_array"/>
+			<param name="playerid">
+			</param>
+			<param name="race_check">
+			</param>
+		</member>
+		<member name="M:OnPlayerCheck" syntax="OnPlayerCheck(playerid)">
+			<attribute name="public"/>
+			<stacksize value="112"/>
+			<dependency name="gSQLHandle"/>
+			<dependency name="g_MysqlRaceCheck"/>
+			<dependency name="mysql_format"/>
+			<dependency name="mysql_tquery"/>
+			<dependency name="sampex_pname"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerPasswordChecked" syntax="OnPlayerPasswordChecked(playerid, success)">
+			<attribute name="public"/>
+			<stacksize value="308"/>
+			<dependency name="OnAccountLoad"/>
+			<dependency name="ShowPlayerDialog"/>
+			<dependency name="format"/>
+			<dependency name="sampex_array"/>
+			<param name="playerid">
+			</param>
+			<param name="success">
+				<paraminfo>bool </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerPasswordHashed" syntax="OnPlayerPasswordHashed(playerid)">
+			<attribute name="public"/>
+			<stacksize value="329"/>
+			<dependency name="ShowPlayerDialog"/>
+			<dependency name="bcrypt_get_hash"/>
+			<dependency name="false"/>
+			<dependency name="gSQLHandle"/>
+			<dependency name="mysql_format"/>
+			<dependency name="mysql_query"/>
+			<dependency name="sampex_array"/>
+			<dependency name="sampex_pname"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:SetSpawnInfo" syntax="SetSpawnInfo()">
+			<stacksize value="1"/>
+			<referrer name="OnAccountLoad"/>
+		</member>
+		<member name="M:ShowPlayerDialog" syntax="ShowPlayerDialog()">
+			<stacksize value="1"/>
+			<referrer name="OnMySQLResponse"/>
+			<referrer name="OnPlayerPasswordHashed"/>
+			<referrer name="OnPlayerPasswordChecked"/>
+		</member>
+		<member name="M:TogglePlayerSpectating" syntax="TogglePlayerSpectating()">
+			<stacksize value="1"/>
+			<referrer name="OnAccountLoad"/>
+		</member>
+		<member name="M:bcrypt_get_hash" syntax="bcrypt_get_hash()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerPasswordHashed"/>
+		</member>
+		<member name="M:cache_num_rows" syntax="cache_num_rows()">
+			<stacksize value="1"/>
+			<referrer name="OnMySQLResponse"/>
+		</member>
+		<member name="M:format" syntax="format()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerPasswordChecked"/>
+		</member>
+		<member name="M:mysql_format" syntax="mysql_format()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerCheck"/>
+			<referrer name="OnPlayerPasswordHashed"/>
+		</member>
+		<member name="M:mysql_query" syntax="mysql_query()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerPasswordHashed"/>
+		</member>
+		<member name="M:mysql_tquery" syntax="mysql_tquery()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerCheck"/>
+		</member>
+		<member name="M:sampex_array" syntax="sampex_array()">
+			<stacksize value="1"/>
+			<referrer name="OnMySQLResponse"/>
+			<referrer name="OnPlayerPasswordHashed"/>
+			<referrer name="OnPlayerPasswordChecked"/>
+		</member>
+		<member name="M:sampex_pname" syntax="sampex_pname()">
+			<stacksize value="1"/>
+			<referrer name="OnPlayerCheck"/>
+			<referrer name="OnPlayerPasswordHashed"/>
+		</member>
+
+	</members>
+</doc>

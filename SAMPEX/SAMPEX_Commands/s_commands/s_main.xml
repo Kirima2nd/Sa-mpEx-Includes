@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="file:///F|/SAMPEX/pawno/xml/pawndoc.xsl" type="text/xsl"?>
+<doc source="F:\SAMPEX\pawno\include\github_repo\SAMPEX\SAMPEX_Commands\s_commands\s_main.inc">
+	<assembly>
+		<name>s_main.inc</name>
+	</assembly>
+	<members>
+
+		<!-- enumerations -->
+
+		<!-- constants -->
+		<member name="C:false" value="0">
+			<tagname value="bool"/>
+		</member>
+		<member name="C:true" value="1">
+			<tagname value="bool"/>
+			<referrer name="sampex_commandperformed"/>
+		</member>
+
+		<!-- variables -->
+		<member name="F:__date">
+		</member>
+		<member name="F:__file">
+		</member>
+		<member name="F:__time">
+		</member>
+		<member name="F:sampex_scmd_e">
+			<tagname value="bool"/>
+			<referrer name="scmd_gminit"/>
+			<referrer name="sampex_OnPlayerCommandText"/>
+		</member>
+		<member name="F:sampex_scmd_s">
+			<tagname value="bool"/>
+			<referrer name="scmd_gminit"/>
+			<referrer name="sampex_OnPlayerCommandText"/>
+		</member>
+
+		<!-- functions -->
+		<member name="M:CallLocalFunction" syntax="CallLocalFunction()">
+			<stacksize value="1"/>
+			<referrer name="scmd_gminit"/>
+			<referrer name="sampex_OnPlayerCommandText"/>
+		</member>
+		<member name="M:IsPlayerConnected" syntax="IsPlayerConnected()">
+			<stacksize value="1"/>
+			<referrer name="sampex_commandreceived"/>
+		</member>
+		<member name="M:SendClientMessage" syntax="SendClientMessage()">
+			<stacksize value="1"/>
+			<referrer name="sampex_commandperformed"/>
+		</member>
+		<member name="M:format" syntax="format()">
+			<stacksize value="1"/>
+			<referrer name="sampex_OnPlayerCommandText"/>
+		</member>
+		<member name="M:funcidx" syntax="funcidx()">
+			<stacksize value="1"/>
+			<referrer name="scmd_gminit"/>
+		</member>
+		<member name="M:isnull" syntax="isnull()">
+			<stacksize value="1"/>
+			<referrer name="sampex_OnPlayerCommandText"/>
+		</member>
+		<member name="M:sampex_OnPlayerCommandText" syntax="sampex_OnPlayerCommandText(playerid, cmdtext[])">
+			<attribute name="public"/>
+			<stacksize value="12"/>
+			<dependency name="CallLocalFunction"/>
+			<dependency name="format"/>
+			<dependency name="isnull"/>
+			<dependency name="sampex_scmd_e"/>
+			<dependency name="sampex_scmd_s"/>
+			<dependency name="tolower"/>
+			<param name="playerid">
+			</param>
+			<param name="cmdtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:sampex_commandperformed" syntax="sampex_commandperformed(playerid, cmdtext[], success)">
+			<attribute name="public"/>
+			<stacksize value="6"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="cmdtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="success">
+			</param>
+		</member>
+		<member name="M:sampex_commandreceived" syntax="sampex_commandreceived(playerid, cmdtext[])">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<dependency name="IsPlayerConnected"/>
+			<param name="playerid">
+			</param>
+			<param name="cmdtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:scmd_gminit" syntax="scmd_gminit()">
+			<attribute name="public"/>
+			<stacksize value="5"/>
+			<dependency name="CallLocalFunction"/>
+			<dependency name="funcidx"/>
+			<dependency name="sampex_scmd_e"/>
+			<dependency name="sampex_scmd_s"/>
+		</member>
+		<member name="M:tolower" syntax="tolower()">
+			<stacksize value="1"/>
+			<referrer name="sampex_OnPlayerCommandText"/>
+		</member>
+
+	</members>
+</doc>
