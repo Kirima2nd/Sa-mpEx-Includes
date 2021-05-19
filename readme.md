@@ -69,13 +69,14 @@ INSTALLATION
 * Place SAMPEX.inc and SAMPEX folder into /pawno/includes/ and
 then include it in your code typing:
 
-	#include <SAMPEX>
+		#include < SAMPEX >
 
 TESTING
 ===========
 
 - To test this, simply run the package:
-	sampctl package run
+
+		sampctl package run
 
 WARNING
 ===========
