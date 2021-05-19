@@ -15,7 +15,7 @@ EXAMPLES
 ============
 
 - See Sa-mpEx gamemode script example here:
-[Examples](https://github.com/DentisT-SAMP/Sa-mpEx/blob/master/gamemodes/example.md)
+[Examples](gamemdoes\Sa-mpEx.pwn)
 
 HASHING SYSTEM
 =================
