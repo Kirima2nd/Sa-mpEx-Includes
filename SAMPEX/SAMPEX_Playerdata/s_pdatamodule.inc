@@ -27,7 +27,7 @@
  *
  */
 
-#include "s_imports"
+#include "s_pd_imports"
 
 #if !defined sampex_playerdata_included
 	#error Sa-mpEx: Please define "sampex_playerdata_included", set it to 0 if you do not want to use it.

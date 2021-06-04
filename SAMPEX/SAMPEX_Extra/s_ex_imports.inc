@@ -27,24 +27,4 @@
  *
  */
 
-// Anti de-amx function:
-
-#include "s_isnull"
-#include "s_ex_imports"
-
-sampex_antideamx()
-{
-	new
-		a
-		[]
-		[] 
-	=
-	{
-	    "Unarmed (Fist)",
-	    "Brass K"
-	}
-	;
-	#pragma unused a
-}
-
-#include "s_amx_extra"
+#tryinclude <YSI_Extra\y_tho>

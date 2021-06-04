@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Extra
+ * Module name: Playerdata
  *
  * Module version: 1.0
  *
@@ -27,24 +27,8 @@
  *
  */
 
-// Anti de-amx function:
-
-#include "s_isnull"
-#include "s_ex_imports"
-
-sampex_antideamx()
-{
-	new
-		a
-		[]
-		[] 
-	=
-	{
-	    "Unarmed (Fist)",
-	    "Brass K"
-	}
-	;
-	#pragma unused a
-}
-
-#include "s_amx_extra"
+// udb hash by Dracoblue isn't used anymore
+#tryinclude "s_udbhash\udbhash"
+// replaced with samp-bcrypt
+#tryinclude <samp_bcrypt>
+#tryinclude <a_mysql>
