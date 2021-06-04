@@ -36,7 +36,7 @@
 			<referrer name="middlesized_map_objects"/>
 			<referrer name="OnPlayerPasswordHashed"/>
 			<referrer name="OnAccountLoad"/>
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 			<referrer name="OnPlayerConnect"/>
 		</member>
 		<member name="C:true" value="1">
@@ -184,13 +184,19 @@
 		</member>
 		<member name="F:__file">
 		</member>
+		<member name="F:__file">
+		</member>
+		<member name="F:__file">
+		</member>
+		<member name="F:__file">
+		</member>
 		<member name="F:__time">
 		</member>
 		<member name="F:gSQLHandle">
 			<tagname value="MySQL"/>
 			<referrer name="OnPlayerCheck"/>
 			<referrer name="OnPlayerPasswordHashed"/>
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 			<referrer name="OnDialogResponse"/>
 			<referrer name="OnGameModeExit"/>
 		</member>
@@ -228,20 +234,19 @@
 			<referrer name="sampex_onplayercommandtext"/>
 		</member>
 		<member name="F:sampex_sql_db">
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 		</member>
 		<member name="F:sampex_sql_host">
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 		</member>
 		<member name="F:sampex_sql_pw">
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 		</member>
 		<member name="F:sampex_sql_user">
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 		</member>
 		<member name="F:sampex_version">
 			<referrer name="sampex_getversion"/>
-			<referrer name="sampex_reglogload"/>
 			<referrer name="sampex_okay"/>
 		</member>
 		<member name="F:versiondata">
@@ -669,7 +674,8 @@
 		</member>
 		<member name="M:CallLocalFunction" syntax="CallLocalFunction(function[], format[], ...)">
 			<attribute name="native"/>
-			<referrer name="scmd_gminit"/>
+			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_libhook_OnGameModeInit"/>
 			<referrer name="sampex_onplayercommandtext"/>
 			<param name="function">
 				<paraminfo> [] </paraminfo>
@@ -924,25 +930,11 @@
 		</member>
 		<member name="M:OnGameModeInit" syntax="OnGameModeInit()">
 			<attribute name="public"/>
-			<stacksize value="11"/>
-			<dependency name="SendRconCommand"/>
-			<dependency name="false"/>
-			<dependency name="gSQLHandle"/>
-			<dependency name="mysql_connect"/>
-			<dependency name="mysql_errno"/>
-			<dependency name="mysql_query"/>
-			<dependency name="random"/>
+			<stacksize value="4"/>
+			<dependency name="CallLocalFunction"/>
+			<dependency name="funcidx"/>
+			<dependency name="sampex_antideamx"/>
 			<dependency name="sampex_checkver"/>
-			<dependency name="sampex_error"/>
-			<dependency name="sampex_info"/>
-			<dependency name="sampex_sql_db"/>
-			<dependency name="sampex_sql_db"/>
-			<dependency name="sampex_sql_host"/>
-			<dependency name="sampex_sql_host"/>
-			<dependency name="sampex_sql_pw"/>
-			<dependency name="sampex_sql_pw"/>
-			<dependency name="sampex_sql_user"/>
-			<dependency name="sampex_sql_user"/>
 		</member>
 		<member name="M:OnIncomingConnection" syntax="OnIncomingConnection(playerid, ip_address[], port)">
 			<stacksize value="1"/>
@@ -1561,7 +1553,7 @@
 		</member>
 		<member name="M:SendRconCommand" syntax="SendRconCommand(command[])">
 			<attribute name="native"/>
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 			<param name="command">
 				<paraminfo> [] </paraminfo>
 			</param>
@@ -2038,8 +2030,8 @@
 		</member>
 		<member name="M:format" syntax="format(output[], len, format[], ...)">
 			<attribute name="native"/>
-			<referrer name="sampex_reglogload"/>
 			<referrer name="sampex_okay"/>
+			<referrer name="sampex_libhook_OnGameModeInit"/>
 			<referrer name="sampex_sendclientmessage"/>
 			<referrer name="sampex_sendclientmessagetoall"/>
 			<referrer name="sampex_globaltdcreate"/>
@@ -2102,6 +2094,8 @@
 		</member>
 		<member name="M:funcidx" syntax="funcidx(name[])">
 			<attribute name="native"/>
+			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_libhook_OnGameModeInit"/>
 			<referrer name="scmd_gminit"/>
 			<param name="name">
 				<paraminfo> [] </paraminfo>
@@ -2142,7 +2136,7 @@
 		<member name="M:mysql_connect" syntax="mysql_connect(host[], user[], password[], database[], option_id)">
 			<tagname value="MySQL"/>
 			<attribute name="native"/>
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 			<param name="host">
 				<paraminfo> [] </paraminfo>
 			</param>
@@ -2161,7 +2155,7 @@
 		</member>
 		<member name="M:mysql_errno" syntax="mysql_errno(handle)">
 			<attribute name="native"/>
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 			<param name="handle">
 				<paraminfo>MySQL </paraminfo>
 			</param>
@@ -2196,7 +2190,7 @@
 			<tagname value="Cache"/>
 			<attribute name="native"/>
 			<referrer name="OnPlayerPasswordHashed"/>
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 			<referrer name="OnDialogResponse"/>
 			<param name="handle">
 				<paraminfo>MySQL </paraminfo>
@@ -2227,14 +2221,8 @@
 				<paraminfo> {MySQL,Float,_} </paraminfo>
 			</param>
 		</member>
-		<member name="M:onpc" syntax="onpc()">
-			<attribute name="public"/>
-			<stacksize value="3"/>
-			<dependency name="sampex_reglogload"/>
-		</member>
 		<member name="M:print" syntax="print(string[])">
 			<attribute name="native"/>
-			<referrer name="sampex_reglogload"/>
 			<referrer name="sampex_okay"/>
 			<referrer name="sampex_different"/>
 			<referrer name="sampex_nulled"/>
@@ -2244,13 +2232,13 @@
 			<referrer name="sampex_error"/>
 			<referrer name="sampex_info"/>
 			<referrer name="main"/>
+			<referrer name="sampex@OnGameModeInit_1"/>
 			<param name="string">
 				<paraminfo> [] </paraminfo>
 			</param>
 		</member>
 		<member name="M:printf" syntax="printf(format[], ...)">
 			<attribute name="native"/>
-			<referrer name="sampex_reglogload"/>
 			<referrer name="sampex_okay"/>
 			<param name="format">
 				<paraminfo> [] </paraminfo>
@@ -2264,12 +2252,39 @@
 			<referrer name="OnMySQLResponse"/>
 			<referrer name="OnPlayerPasswordHashed"/>
 			<referrer name="OnPlayerPasswordChecked"/>
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 			<param name="max">
 			</param>
 		</member>
+		<member name="M:sampex@OnGameModeInit_1" syntax="sampex@OnGameModeInit_1()">
+			<attribute name="public"/>
+			<stacksize value="3"/>
+			<dependency name="print"/>
+		</member>
+		<member name="M:sampex_ahook_OnGameModeInit" syntax="sampex_ahook_OnGameModeInit()">
+			<attribute name="public"/>
+			<stacksize value="11"/>
+			<dependency name="SendRconCommand"/>
+			<dependency name="false"/>
+			<dependency name="gSQLHandle"/>
+			<dependency name="mysql_connect"/>
+			<dependency name="mysql_errno"/>
+			<dependency name="mysql_query"/>
+			<dependency name="random"/>
+			<dependency name="sampex_error"/>
+			<dependency name="sampex_info"/>
+			<dependency name="sampex_sql_db"/>
+			<dependency name="sampex_sql_db"/>
+			<dependency name="sampex_sql_host"/>
+			<dependency name="sampex_sql_host"/>
+			<dependency name="sampex_sql_pw"/>
+			<dependency name="sampex_sql_pw"/>
+			<dependency name="sampex_sql_user"/>
+			<dependency name="sampex_sql_user"/>
+		</member>
 		<member name="M:sampex_antideamx" syntax="sampex_antideamx()">
 			<stacksize value="26"/>
+			<referrer name="OnGameModeInit"/>
 		</member>
 		<member name="M:sampex_boolean" syntax="sampex_boolean(filename[], key[])">
 			<stacksize value="5"/>
@@ -2384,7 +2399,7 @@
 			<stacksize value="306"/>
 			<referrer name="sampex_setpositive"/>
 			<referrer name="sampex_setnegative"/>
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 			<dependency name="format"/>
 			<dependency name="print"/>
 			<param name="str">
@@ -2503,7 +2518,7 @@
 			<stacksize value="306"/>
 			<referrer name="sampex_setpositive"/>
 			<referrer name="sampex_setnegative"/>
-			<referrer name="OnGameModeInit"/>
+			<referrer name="sampex_ahook_OnGameModeInit"/>
 			<referrer name="OnPlayerConnect"/>
 			<referrer name="OnDialogResponse"/>
 			<dependency name="format"/>
@@ -2539,6 +2554,13 @@
 			<param name="key">
 				<paraminfo> [] </paraminfo>
 			</param>
+		</member>
+		<member name="M:sampex_libhook_OnGameModeInit" syntax="sampex_libhook_OnGameModeInit()">
+			<attribute name="public"/>
+			<stacksize value="307"/>
+			<dependency name="CallLocalFunction"/>
+			<dependency name="format"/>
+			<dependency name="funcidx"/>
 		</member>
 		<member name="M:sampex_linestrip" syntax="sampex_linestrip(string[])">
 			<stacksize value="4"/>
@@ -2620,19 +2642,11 @@
 			<referrer name="OnPlayerCheck"/>
 			<referrer name="OnPlayerPasswordHashed"/>
 			<referrer name="OnDialogResponse"/>
-			<referrer name="sampexcmd_test"/>
+			<referrer name="sampexcmd_testing"/>
 			<dependency name="GetPlayerName"/>
 			<dependency name="sampex_pname"/>
 			<param name="id">
 			</param>
-		</member>
-		<member name="M:sampex_reglogload" syntax="sampex_reglogload()">
-			<stacksize value="16"/>
-			<referrer name="onpc"/>
-			<dependency name="format"/>
-			<dependency name="print"/>
-			<dependency name="printf"/>
-			<dependency name="sampex_version"/>
 		</member>
 		<member name="M:sampex_remove" syntax="sampex_remove(filename[])">
 			<stacksize value="3"/>
@@ -2643,7 +2657,7 @@
 		</member>
 		<member name="M:sampex_sendclientmessage" syntax="sampex_sendclientmessage(p_id, color, sampex_message_string[], ...)">
 			<stacksize value="5"/>
-			<referrer name="sampexcmd_test"/>
+			<referrer name="sampexcmd_testing"/>
 			<dependency name="SendClientMessage"/>
 			<dependency name="format"/>
 			<param name="p_id">
@@ -2823,7 +2837,7 @@
 				<paraminfo> [] </paraminfo>
 			</param>
 		</member>
-		<member name="M:sampexcmd_test" syntax="sampexcmd_test(playerid, strings[])">
+		<member name="M:sampexcmd_testing" syntax="sampexcmd_testing(playerid, sampex_cmdparams[])">
 			<attribute name="public"/>
 			<stacksize value="32"/>
 			<dependency name="sampex_pname"/>
@@ -2831,14 +2845,13 @@
 			<dependency name="sampex_sendclientmessage"/>
 			<param name="playerid">
 			</param>
-			<param name="strings">
+			<param name="sampex_cmdparams">
 				<paraminfo> [] </paraminfo>
 			</param>
 		</member>
 		<member name="M:scmd_gminit" syntax="scmd_gminit()">
 			<attribute name="public"/>
-			<stacksize value="4"/>
-			<dependency name="CallLocalFunction"/>
+			<stacksize value="3"/>
 			<dependency name="funcidx"/>
 			<dependency name="sampex_scmd_e"/>
 			<dependency name="sampex_scmd_s"/>

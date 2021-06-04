@@ -42,10 +42,6 @@ forward scmd_gminit(); public scmd_gminit()
 	
 	// sampex_scmd_query = funcidx("datacheck") ! = 1;
 	
-	if (funcidx("scmd_gminit") != -1)
-	{
-		return sampex_callfunc("scmd_gminit", "");
-	}
 	return 1;
 }
 #define sampex_commands_updated 1

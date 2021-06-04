@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Playerdata
+ * Module name: user hooks
  *
  * Module version: 1.0
  *
@@ -27,12 +27,17 @@
  *
  */
 
-#include "s_imports"
+/*==============================================================================
+User hooks module
+==============================================================================*/
 
-#if !defined sampex_playerdata_included
-	#error Sa-mpEx: Please define "sampex_playerdata_included", set it to 0 if you do not want to use it.
-#endif
+#include "s_hookfix"
 
-#if sampex_playerdata_included == 1
-#include "s_bcryptsql\s_bcryptsql_entry"
-#endif
+#define sampexhooks_return 1
+
+#define sampex_manualuserhook("%1",params:(%2),contains:[%3]); \
+forward %1(%2); public %1(%2)\
+{\
+	%3 \
+	return sampexhooks_return; \
+}

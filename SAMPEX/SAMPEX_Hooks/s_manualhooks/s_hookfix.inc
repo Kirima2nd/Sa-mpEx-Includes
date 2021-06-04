@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Playerdata
+ * Module name: hook fix
  *
  * Module version: 1.0
  *
@@ -27,12 +27,10 @@
  *
  */
 
-#include "s_imports"
+/*=============================================
+Sa-mpEx Module include file
+=============================================*/
 
-#if !defined sampex_playerdata_included
-	#error Sa-mpEx: Please define "sampex_playerdata_included", set it to 0 if you do not want to use it.
-#endif
+#pragma warning disable 217
 
-#if sampex_playerdata_included == 1
-#include "s_bcryptsql\s_bcryptsql_entry"
-#endif
+#define sampex_manualhookattach("%1",params:(%2)); %1(%2);

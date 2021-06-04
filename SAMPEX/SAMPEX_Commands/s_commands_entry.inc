@@ -27,7 +27,7 @@
  *
  */
 
-#define sampex_cmd:%1(%2)          \
-			forward sampexcmd_%1(%2); \
-			public sampexcmd_%1(%2)
+#define sampex_cmd(cmdname:%1,params:[%2]) \
+			forward sampexcmd_%1(%2,sampex_cmdparams[]); \
+			public sampexcmd_%1(%2,sampex_cmdparams[])
 #include "s_commands\s_forwards"

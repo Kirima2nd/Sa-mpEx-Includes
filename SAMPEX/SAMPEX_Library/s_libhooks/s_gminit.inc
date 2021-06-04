@@ -27,9 +27,6 @@
  *
  */
 
-
-#include "s_onpconnect"
-
 /*==============================================================================
 Sa-mpEx Library Hooks
 ==============================================================================*/
@@ -161,9 +158,31 @@ stock
 	}
 	return -1;
 }
+#if defined sampex_als_hooking_defined
 #define gm OnGameModeInit
 
 #define sampex_OnGameModeInit(){ \
 public gm() \ 
 { \
 	sampex_checkver();
+
+#endif
+
+public OnGameModeInit()
+{
+	sampex_checkver();
+	sampex_antideamx();
+	if (funcidx("sampex_libhook_OnGameModeInit") != -1)
+	{
+		return CallLocalFunction("sampex_libhook_OnGameModeInit", "");
+	}	
+	return 1;
+}
+
+#if defined sampex_OnGameModeInit
+    #undef OnGameModeInit
+#else
+    #define sampex_OnGameModeInit
+#endif
+#define OnGameModeInit sampex_libhook_OnGameModeInit
+forward sampex_libhook_OnGameModeInit();

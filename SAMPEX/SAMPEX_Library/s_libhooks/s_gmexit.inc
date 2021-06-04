@@ -56,8 +56,30 @@ stock
 	print(".");
 	print(".");
 }
+#if defined sampex_als_hooking_defined
 #define ge OnGameModeExit
 
 #define sampex_OnGameModeExit(){ \
 public ge() {\
 	sampex_un();
+
+#endif
+
+public OnGameModeExit()
+{
+	sampex_checkver();
+	sampex_antideamx();
+	if (funcidx("sampex_libhook_OnGameModeExit") != -1)
+	{
+		return CallLocalFunction("sampex_libhook_OnGameModeExit", "");
+	}	
+	return 1;
+}
+
+#if defined sampex_OnGameModeExit
+    #undef OnGameModeExit
+#else
+    #define sampex_OnGameModeExit
+#endif
+#define OnGameModeExit sampex_libhook_OnGameModeExit
+forward sampex_libhook_OnGameModeExit();

@@ -9,13 +9,13 @@ FUNCTION LIST
 ================
 
 - Get list of Sa-mpEx functions here: 
-[Functions](Sa-mpEx.md)
+[Functions](https://github.com/DentisT-SAMP/Sa-mpEx/blob/main/Sa-mpEx.md)
 
 EXAMPLES
 ============
 
 - See Sa-mpEx gamemode script example here:
-[Examples](gamemdoes/Sa-mpEx.pwn)
+[Examples](https://github.com/DentisT-SAMP/Sa-mpEx/blob/master/gamemodes/example.md)
 
 HASHING SYSTEM
 =================
@@ -38,13 +38,13 @@ GENERAL INFO
 - Credits: me, FLY.INC, DracoBlue, streamer, Y_Less, bcrypt, Zeex
 
 - Thanks to:
- ITB CompuPhase ( pawno, compiler, includes )
- SA-MP Team ( includes, actual GTA SA MOD, server )
- ZeeX ( compiler )
- Y_Less ( lot of ideas )
- Aezakmi, my cousin ( support and ideas )
+* ITB CompuPhase ( pawno, compiler, includes )
+* SA-MP Team ( includes, actual GTA SA MOD, server )
+* ZeeX ( compiler )
+* Y_Less ( lot of ideas )
+* Aezakmi, my cousin ( support and ideas )
 
- ... and everyone who helped!
+* ... and everyone who helped!
 
 WHAT'S THIS?
 ===============
@@ -62,21 +62,18 @@ INSTALLATION
 ================
 
 - sampctl:
-
-		sampctl package install DentisT-SAMP/Sa-mpEx
+	sampctl package install DentisT-SAMP/Sa-mpEx
 
 - Without sampctl:
 * Place SAMPEX.inc and SAMPEX folder into /pawno/includes/ and
 then include it in your code typing:
-
-		#include < SAMPEX >
+	#include <SAMPEX>
 
 TESTING
 ===========
 
 - To test this, simply run the package:
-
-		sampctl package run
+	sampctl package run
 
 WARNING
 ===========
@@ -101,17 +98,17 @@ Changes:
 * PlayerTextDrawSetString extended function!
 * fixed where sampex_cmd:testing was destroying compiler
 
-Contains:
-- SA-MP extended functions!
-- Library hooks - use them to load or unload library!
-- User hooks, create hook and attach hook to a public function!
-- INI Core - needed to use scriptfiles!
-- Math operation functions...
-- New SA-MP functions!
-- Fly mode!
-- sampctl support
-- streamer funcs
-- Player data module
-- Bcrypt funcs for Playerdata module (BETA feauture - contact for contribution )
-- Command processor ( sampex_cmd )
-- Extra functions, used by the library - not user
+- Contains:
+SA-MP extended functions!
+Library hooks - use them to load or unload library!
+User hooks, create hook and attach hook to a public function!
+INI Core - needed to use scriptfiles!
+Math operation functions...
+New SA-MP functions!
+Fly mode!
+sampctl support
+streamer funcs
+Player data module
+Bcrypt funcs for Playerdata module (BETA feauture - contact for contribution )
+Command processor ( sampex_cmd )
+Extra functions, used by the library - not user

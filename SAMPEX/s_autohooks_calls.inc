@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Playerdata
+ * Module name: user hooks
  *
  * Module version: 1.0
  *
@@ -27,12 +27,22 @@
  *
  */
 
-#include "s_imports"
+#define sampex_autohooks_calls_included
 
-#if !defined sampex_playerdata_included
-	#error Sa-mpEx: Please define "sampex_playerdata_included", set it to 0 if you do not want to use it.
+#if defined sampex_autohooks_debug
+#if defined sampex_hooked_OnGameModeInit
+    #undef OnGameModeInit
+#else
+    #define sampex_hooked_OnGameModeInit
+#endif
+#define OnFilterScriptInit @sampex_hooked_OnGameModeInit
+forward @sampex_hooked_OnGameModeInit();
 #endif
 
-#if sampex_playerdata_included == 1
-#include "s_bcryptsql\s_bcryptsql_entry"
+#if defined sampex_hooked_OnPlayerSpawn
+    #undef OnPlayerSpawn
+#else
+    #define sampex_hooked_OnPlayerSpawn
 #endif
+#define OnFilterScriptInit @sampex_hooked_OnPlayerSpawn
+forward @sampex_hooked_OnPlayerSpawn();

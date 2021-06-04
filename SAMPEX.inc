@@ -43,7 +43,7 @@ GENERAL INFO
 
 - Ideas > open-mp staff team and contributors!
 
-- Credits: me, FLY.INC, DracoBlue, streamer, Y_Less, bcrypt, Zeex
+- Credits: me, FLY.INC, DracoBlue, streamer, Y_Less, bcrypt, Zeex, Agus
 
 - Thanks to:
 * ITB CompuPhase ( pawno, compiler, includes )
@@ -70,18 +70,18 @@ INSTALLATION
 ================
 
 - sampctl:
-	sampctl package install DentisT-SAMP/Sa-mpEx
+		sampctl package install DentisT-SAMP/Sa-mpEx
 
 - Without sampctl:
 * Place SAMPEX.inc and SAMPEX folder into /pawno/includes/ and
 then include it in your code typing:
-	#include <SAMPEX>
+		#include < SAMPEX >
 
 TESTING
 ===========
 
 - To test this, simply run the package:
-	sampctl package run
+		sampctl package run
 
 WARNING
 ===========
@@ -144,6 +144,8 @@ Extra functions, used by the library - not user
 
 // Version:
 
+#define sampex_print print
+#define sampex_printf printf
 new sampex_version = 1;
 
 // Script:
@@ -187,13 +189,13 @@ new sampex_version = 1;
 #include <a_samp>
 #endif
 
-// Hooks:
-
-#include "SAMPEX\SAMPEX_Userhooks\s_userhooks"
-
 // Library hooks:
 
 #include "SAMPEX\SAMPEX_Library\s_libhooks.inc"
+
+// Hooks:
+
+#include "SAMPEX\SAMPEX_Hooks\s_userhooks.inc"
 
 // Extended functions:
 

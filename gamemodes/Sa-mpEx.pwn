@@ -1,5 +1,8 @@
 #include <a_samp>
 
+#define sampex_playerdata_included 1
+#define sampex_hookinfo_display 1
+
 #include <SAMPEX\s_scriptentry>
 
 sampex_setmysqlstats(s_mysql:["localhost"],["root"],[""],["database"]);
@@ -14,10 +17,10 @@ sampex_sql_register(strings:["Register"],["Pls input ur pw to register"]);
 
 main() 
 {
-	print("TEST");
+	sampex_print("TEST");
 }
 
-sampex_OnGameModeInit(){
+public OnGameModeInit(){
     sampex_createmysqlconnection();
 	sampex_mysql();
 	if(sampex_mysqlfail)
@@ -74,9 +77,32 @@ public OnGameModeExit()
 	return 1;
 }
 
-sampex_cmd:test(playerid,strings[])
+sampex_cmd(cmdname:testing,params:[playerid])
 {
 	sampex_sendclientmessage(playerid,-1,"One little test with: %s",sampex_pname(playerid));
 	return 1;
 }
 
+sampex_cmd(cmdname:testing2,params:[playerid])
+{
+	sampex_sendclientmessage(playerid,-1,"One little test with this interesting guy: %s",sampex_pname(playerid));
+	return 1;
+}
+
+sampex_hook(pub:[OnGameModeInit],params:[],hookid:[1])
+{
+	sampex_print("actually worked for the first time");
+	return 1;
+}
+
+sampex_hook(pub:[OnGameModeInit],params:[],hookid:[2])
+{
+	sampex_print("actually worked for the even second time wow");
+	return 1;
+}
+
+sampex_hook(pub:[OnGameModeExit],params:[],hookid:[1])
+{
+	sampex_print("actually worked for the first time even on gamemodeexit");
+	return 1;
+}
