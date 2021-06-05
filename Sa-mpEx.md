@@ -38,34 +38,43 @@ Below, you can see a list of all the modules included in the Sa-mpEx library.
 
 Modules are:
 
-- *Commands:* To view more info about this module, click here: 
+- *Commands:* 
+To view more info about this module, click here: 
 [Read more...](SAMPEX/SAMPEX_Commands/s_commands_module.md)
 
-- *Extendeds:* To view more info about this module, click here: 
+- *Extendeds:* 
+To view more info about this module, click here: 
 [Read more...](SAMPEX/SAMPEX_Extendeds/s_extendeds_module.md)
 
-- *Extra:* To view more info about this module, click here: 
+- *Extra:* 
+To view more info about this module, click here: 
 [Read more...](SAMPEX/SAMPEX_Extra/s_extra_module.md)
 
-- *Game:* To view more info about this module, click here: 
+- *Game:* 
+To view more info about this module, click here: 
 [Read more...](SAMPEX/SAMPEX_Game/s_game_module.md)
 
-- *Hooks:* To view more info about this module, click here: 
+- *Hooks:* 
+To view more info about this module, click here: 
 [Read more...](SAMPEX/SAMPEX_Hooks/s_hooks_module.md)
 
-- *Library:* To view more info about this module, click here: 
+- *Library:* 
+To view more info about this module, click here: 
 [Read more...](SAMPEX/SAMPEX_Library/s_library_module.md)
 
 - *Playerdata (aka - Players):* To view more info about this module, click here: 
 [Read more...](SAMPEX/SAMPEX_Playerdata/s_playerdata_module.md)
 
-- *Storage:* To view more info about this module, click here: 
+- *Storage:* 
+To view more info about this module, click here: 
 [Read more...](SAMPEX/SAMPEX_Storage/s_storage_module.md)
 
-- *Streamer:* To view more info about this module, click here: 
+- *Streamer:* 
+To view more info about this module, click here: 
 [Read more...](SAMPEX/SAMPEX_Streamer/s_streamer_module.md)
 
-- *Variables (aka - Vars):* To view more info about this module, click here: 
+- *Variables (aka - Vars):* 
+To view more info about this module, click here: 
 [Read more...](SAMPEX/SAMPEX_Variables/s_variables_module.md)
 
 ## Installation
