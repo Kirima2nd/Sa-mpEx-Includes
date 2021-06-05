@@ -1,6 +1,6 @@
 # Sa-mpEx
 
-[Go back...]()
+[Go back...](https://github.com/Sa-mpEx/Sa-mpEx-Includes)
 
 ## Introduction
 
@@ -48,3 +48,31 @@ Modules are:
 - *Storage:* To view more info about this module, click here: [show more](SAMPEX/SAMPEX_Storage/s_storage_module.md)
 - *Streamer:* To view more info about this module, click here: [show more](SAMPEX/SAMPEX_Streamer/s_streamer_module.md)
 - *Variables (aka - Vars):* To view more info about this module, click here: [show more](SAMPEX/SAMPEX_Variables/s_variables_module.md)
+
+## Installation
+
+### sampctl
+
+NOTE: Only for *sampctl* users.
+- If you're using *sampctl*, you can simply install Sa-mpEx to your project with:
+
+```pawn
+sampctl package install Sa-mpEx/Sa-mpEx-Includes
+```
+
+### Without - sampctl
+
+- If you aren't using *sampctl*, you still can install Sa-mpEx - don't worry! In order to install Sa-mpEx without sampctl, download it from here and simply move following files to ***pawno\includes***:
+
+```pawn
+SAMPEX.cfg (file)
+SAMPEX.inc (file)
+SAMPEX (directory)
+```
+
+- Now, include it and start using the library:
+
+```pawn
+#include <SAMPEX.cfg>
+#include <SAMPEX>
+```
