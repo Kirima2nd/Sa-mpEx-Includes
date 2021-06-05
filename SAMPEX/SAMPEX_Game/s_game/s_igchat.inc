@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Extra
+ * Module name: Chat functions
  *
  * Module version: 1.0
  *
@@ -27,17 +27,9 @@
  *
  */
 
-#define MAX_FUNC_NAME (64)
+/*=============================================
+Sa-mpEx Module include file
+=============================================*/
 
-#define p: public
-#define r: return
-
-#define sampex_callfunc \
-	CallLocalFunction
-
-#if !defined isnull
-	#define isnull(%1) \
-				((!(%1[0])) || (((%1[0]) == '\1') && (!(%1[1]))))
-#endif
-
-#define sampex_isnull isnull
+#define sampex_clearplayerchat( %0, %1 ) \
+	for( new i = 0; i < %1; i ++ ) SendClientMessage(%0, -1, " ")

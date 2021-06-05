@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Extra
+ * Module name: Player functions
  *
  * Module version: 1.0
  *
@@ -27,17 +27,13 @@
  *
  */
 
-#define MAX_FUNC_NAME (64)
 
-#define p: public
-#define r: return
+/*=============================================
+Sa-mpEx Module include file
+=============================================*/
 
-#define sampex_callfunc \
-	CallLocalFunction
-
-#if !defined isnull
-	#define isnull(%1) \
-				((!(%1[0])) || (((%1[0]) == '\1') && (!(%1[1]))))
-#endif
-
-#define sampex_isnull isnull
+stock sampex_pname( id ) {
+	new name[ MAX_PLAYER_NAME ];
+	GetPlayerName( id, name,sizeof(name));
+	return name;
+}

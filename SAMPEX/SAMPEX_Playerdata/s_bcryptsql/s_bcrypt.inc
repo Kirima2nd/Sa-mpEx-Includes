@@ -41,8 +41,8 @@
 #define sampex_bcrypt_login: \
 	case E_DIALOG_LOGIN:
 
-#define sampex_bcrypt_hash(params:[%0],[%1]); \
-	bcrypt_hash(%0,#OnPlayerPasswordHashed, %1, BCRYPT_COST, "i", %0);
+#define sampex_bcrypt_hash(params:[%0],[%1]) \
+	bcrypt_hash(%0,#OnPlayerPasswordHashed, %1, BCRYPT_COST, "i", %0)
 
 #define sampex_pw_toosmall \
 	strlen(inputtext) < 5

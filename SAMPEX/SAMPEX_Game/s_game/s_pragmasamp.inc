@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Extra
+ * Module name: # pragma
  *
  * Module version: 1.0
  *
@@ -27,17 +27,24 @@
  *
  */
 
-#define MAX_FUNC_NAME (64)
 
-#define p: public
-#define r: return
+/*=============================================
+Pragmas for SA-MP functions module
+=============================================*/
 
-#define sampex_callfunc \
-	CallLocalFunction
+// For never-used warnings in FlyMode include
 
-#if !defined isnull
-	#define isnull(%1) \
-				((!(%1[0])) || (((%1[0]) == '\1') && (!(%1[1]))))
+#pragma unused Flying
+#pragma unused StartFly
+#pragma unused StopFly
+
+// For streamer funcs:
+
+#pragma unused big_map_objects
+#pragma unused middlesized_map_objects
+
+#if defined sampex_stockavoid
+
+#pragma unused sampex_createdynamicobject
+
 #endif
-
-#define sampex_isnull isnull

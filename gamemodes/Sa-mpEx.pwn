@@ -1,7 +1,4 @@
-#include <a_samp>
-
-#define sampex_playerdata_included 1
-#define sampex_hookinfo_display 1
+#include <SAMPEX.cfg>
 
 #include <SAMPEX\s_scriptentry>
 
@@ -20,37 +17,52 @@ main()
 	sampex_print("TEST");
 }
 
-public OnGameModeInit(){
+sampex_iteradd(name:[test],iterid:[1],params:<>,return_val:<6>);
+
+sampex_iteradd(name:[test],iterid:[2],params:<>,return_val:<5>);
+
+sampex_iteradd(name:[test],iterid:[3],params:<>,return_val:<4>);
+
+p: OnGameModeInit()
+{
+    sampex_each(iterid_c:<i>)
+    {
+        sampex_printf("Iterator id %i successfully called and returned %i",i,sampex_iterexzp("test",i));
+	}
     sampex_createmysqlconnection();
 	sampex_mysql();
 	if(sampex_mysqlfail)
 	{
 	    sampex_sql_failed();
-		return 1;
+		r: 1;
 	}
 	sampex_sql_success();
-	return 1;
+	r: 1;
 }
 
-public OnPlayerConnect(playerid)
+p: OnPlayerConnect(playerid)
 {
+    sampex_foreach(stditer:<s_player>)
+    {
+        sampex_sendclientmessage(playerid,-1,"%s connected to server",sampex_pname(playerid));
+	}
 	sampex_callmysql(playerid);
-	return 1;
+	r: 1;
 }
 
-public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
+p: OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
 	switch (dialogid)
 	{
 		sampex_bcrypt_register:
 		{
-			if(sampex_pw_toosmall) return sampex_showregister(playerid,strings:["register"],["Pls input ur pw again\n\nthe pw u typed is invalid"]);
+			if(sampex_pw_toosmall) r: sampex_showregister(playerid,strings:["register"],["Pls input ur pw again\n\nthe pw u typed is invalid"]);
 			sampex_bcrypt_hash(params:[playerid],[inputtext]);
-			return 1;
+			r: 1;
 		}
 		sampex_bcrypt_login:
 		{
-			if (sampex_loginpw_invalid) return sampex_showlogin(playerid,strings:["login"],["invalid pw\npls try again"]);
+			if (sampex_loginpw_invalid) r: sampex_showlogin(playerid,strings:["login"],["invalid pw\npls try again"]);
 
 			sampex_query_mysql();
 
@@ -60,49 +72,56 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				sampex_verify_hash(playerid,strings:[inputtext]);
 			}
 			sampex_cache();
-			return 1;
+			r: 1;
 		}
 	}
-	return 0;
+	r: 0;
 }
 
-public OnPlayerDisconnect(playerid, reason)
+p: OnPlayerDisconnect(playerid, reason)
 {
-	return 1;
+	r: 1;
 }
 
-public OnGameModeExit()
+p: OnGameModeExit()
 {
 	sampex_mysqlclose();
-	return 1;
+	r: 1;
 }
 
 sampex_cmd(cmdname:testing,params:[playerid])
 {
 	sampex_sendclientmessage(playerid,-1,"One little test with: %s",sampex_pname(playerid));
-	return 1;
+	r: 1;
 }
 
 sampex_cmd(cmdname:testing2,params:[playerid])
 {
 	sampex_sendclientmessage(playerid,-1,"One little test with this interesting guy: %s",sampex_pname(playerid));
-	return 1;
+	r: 1;
 }
 
 sampex_hook(pub:[OnGameModeInit],params:[],hookid:[1])
 {
 	sampex_print("actually worked for the first time");
-	return 1;
+	r: 1;
 }
 
 sampex_hook(pub:[OnGameModeInit],params:[],hookid:[2])
 {
 	sampex_print("actually worked for the even second time wow");
-	return 1;
+	r: 1;
 }
 
 sampex_hook(pub:[OnGameModeExit],params:[],hookid:[1])
 {
 	sampex_print("actually worked for the first time even on gamemodeexit");
-	return 1;
+	r: 1;
+}
+
+sampex_task(timerid:[1])
+{
+    sampex_taskset(dur:<1000>,timerid:[1]);
+	print("Timer 1 successfully called :)");
+	r: 1;
 }

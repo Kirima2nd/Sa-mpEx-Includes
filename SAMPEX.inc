@@ -213,13 +213,9 @@ new sampex_version = 1;
 
 // SA-MP functions:
 
-#include "SAMPEX\SAMPEX_Game\s_weapons"
-#include "SAMPEX\SAMPEX_Game\s_igchat"
-#include "SAMPEX\SAMPEX_Game\s_flymode"
-
-#include "SAMPEX\SAMPEX_Game\s_pragmasamp"
-
-#include "SAMPEX\SAMPEX_Game\s_playername"
+#include "SAMPEX\SAMPEX_Game\s_game.inc"
+#include "SAMPEX\SAMPEX_Game\s_foreach.inc"
+#include "SAMPEX\SAMPEX_Game\s_timers.inc"
 
 // Streamer functions:
 

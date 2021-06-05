@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Extra
+ * Module name: weapon funcs
  *
  * Module version: 1.0
  *
@@ -27,17 +27,8 @@
  *
  */
 
-#define MAX_FUNC_NAME (64)
+// Default spawn info coordinates:
 
-#define p: public
-#define r: return
-
-#define sampex_callfunc \
-	CallLocalFunction
-
-#if !defined isnull
-	#define isnull(%1) \
-				((!(%1[0])) || (((%1[0]) == '\1') && (!(%1[1]))))
-#endif
-
-#define sampex_isnull isnull
+#define sampex_sinfox 1958.37830000
+#define sampex_sinfoy 1343.15720000
+#define sampex_sinfoz 15.3746000000

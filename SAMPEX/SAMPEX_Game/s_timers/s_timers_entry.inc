@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Extra
+ * Module name: game timers
  *
  * Module version: 1.0
  *
@@ -27,17 +27,5 @@
  *
  */
 
-#define MAX_FUNC_NAME (64)
-
-#define p: public
-#define r: return
-
-#define sampex_callfunc \
-	CallLocalFunction
-
-#if !defined isnull
-	#define isnull(%1) \
-				((!(%1[0])) || (((%1[0]) == '\1') && (!(%1[1]))))
-#endif
-
-#define sampex_isnull isnull
+#include "s_timercall.inc"
+#include "s_timerpub.inc"

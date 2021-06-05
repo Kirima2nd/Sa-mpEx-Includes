@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Extra
+ * Module name: SAMP
  *
  * Module version: 1.0
  *
@@ -27,17 +27,10 @@
  *
  */
 
-#define MAX_FUNC_NAME (64)
+#include "s_game\s_weapons"
+#include "s_game\s_igchat"
+#include "s_game\s_flymode"
 
-#define p: public
-#define r: return
+#include "s_game\s_pragmasamp"
 
-#define sampex_callfunc \
-	CallLocalFunction
-
-#if !defined isnull
-	#define isnull(%1) \
-				((!(%1[0])) || (((%1[0]) == '\1') && (!(%1[1]))))
-#endif
-
-#define sampex_isnull isnull
+#include "s_game\s_playername"

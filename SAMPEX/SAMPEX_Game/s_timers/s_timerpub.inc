@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: Extra
+ * Module name: game timers
  *
  * Module version: 1.0
  *
@@ -27,17 +27,8 @@
  *
  */
 
-#define MAX_FUNC_NAME (64)
+#define sampex_task(timerid:[%0]) \
+forward sampex@task_%0(); public sampex@task_%0()
 
-#define p: public
-#define r: return
-
-#define sampex_callfunc \
-	CallLocalFunction
-
-#if !defined isnull
-	#define isnull(%1) \
-				((!(%1[0])) || (((%1[0]) == '\1') && (!(%1[1]))))
-#endif
-
-#define sampex_isnull isnull
+#define sampex_taskset(dur:<%0>,timerid:[%1]) \
+	SetTimer("sampex@task_%1", %0, false)
