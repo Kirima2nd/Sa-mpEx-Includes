@@ -22,9 +22,9 @@
 
 Modules are technically ordinary folders, but - they contain different files that are arranged by modules depending on their use.
 
-Well, the * Storage * module contains functions related to storing data in files. For example, these functions are needed to create a registry and login system!
+Well, the *Storage* module contains functions related to storing data in files. For example, these functions are needed to create a registry and login system!
 
-Remember that you as a user of this library do not need to include modules and libraries because they are all included together in the SAMPEX.inc file. Which means, in order to use the Sa-mpEx functions - all you need to do is include SAMPEX.inc and the configuration file:
+Remember that you as a user of this library do not need to include modules and libraries because they are all included together in the **SAMPEX.inc** file. Which means, in order to use the Sa-mpEx functions - all you need to do is include **SAMPEX.inc** and the configuration file:
 
 ```pawn
 #include <SAMPEX.cfg>
@@ -37,5 +37,5 @@ Below, you can see a list of all the modules included in the Sa-mpEx library.
 - To learn more about a particular module, click on the blue text (internet link)!
 
 Modules are:
-![*- Commands*]()
-![*- Commands*]()
+
+- *Commands:* To view more info about this module, click here: [show more](SAMPEX/SAMPEX_Commands)
