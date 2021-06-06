@@ -63,3 +63,19 @@ sampex_cmd(cmdname:help,params:[playerid])
 ```
 Hurry! DEntisT needs help...
 ```
+
+***Notes***
+
+- Note that you can add more command parameters on *params:[...]* part.
+
+For an example:
+
+```pawn
+sampex_cmd(cmdname:help,params:[playerid,string[]])
+{
+	new id;
+	if(sscanf(string,"i",id)) r: SendClientMessage(playerid,"You need to specify playerid.");
+	if( i != INVALID_PLAYER_ID ) printf("Hurry! %s needs help...",sampex_pname(i));
+	r: 1;
+}
+```
