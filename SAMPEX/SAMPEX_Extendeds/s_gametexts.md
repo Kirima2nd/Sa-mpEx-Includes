@@ -41,7 +41,7 @@ p: OnPlayerSpawn(playerid)
 	sampex_gametextforplayer(playerid,"Welcome %s",1000,1,sampex_pname(playerid));
 	r: 1;
 }
-
+```
 **Output**
 
 - So, when player spawns - he will receive gametext saying:
