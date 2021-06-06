@@ -79,6 +79,7 @@ p: OnPlayerConnect(playerid)
 	sampex_gametextforall(playerid,"%s joined the game",1000,1,sampex_pname(playerid));
 	r: 1;
 }
+```
 
 **Output**
 
