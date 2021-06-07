@@ -95,7 +95,7 @@ LEGAL:
 
 // playerdata macros:
 
-#if sampex_include_scriptentry == 1
+#if defined sampex_include@scriptentry
 #include "SAMPEX\SAMPEX_Extra\s_scriptentry.inc"
 #endif
 
@@ -150,9 +150,7 @@ new sampex_version = 1;
 
 // Main includes:
 
-#if sampex_testing == 1
-#include <a_samp>
-#endif
+#define sampex_include_asamp 1
 
 // Library hooks:
 
