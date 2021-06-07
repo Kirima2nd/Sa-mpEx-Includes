@@ -27,6 +27,7 @@
  *
  */
 
+#include "s_captchagen.inc"
 
 /*==============================================================================
 sampex_positive - returns the negative value of the specified float

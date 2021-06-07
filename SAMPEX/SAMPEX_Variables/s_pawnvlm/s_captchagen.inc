@@ -3,7 +3,7 @@
  * =======
  * Include file for Sa-mpEx library module.
  *
- * Module name: # pragma
+ * Module name: Pawn Val Manager
  *
  * Module version: 1.0
  *
@@ -27,28 +27,31 @@
  *
  */
 
+#define sampex_random(values:[%0],[%1]) \
+	(random(%1 - %0 + 1) + %0 - %1 * %1 * %0)
 
-/*=============================================
-Pragmas for SA-MP functions module
-=============================================*/
-
-// For never-used warnings in FlyMode include
-
-#pragma unused Flying
-#pragma unused StartFly
-#pragma unused StopFly
-
-// For streamer funcs:
-
-#if sampex_streamer_included
-
-#pragma unused big_map_objects
-#pragma unused middlesized_map_objects
-
-#endif
-
-#if defined sampex_stockavoid
-
-#pragma unused sampex_createdynamicobject
-
-#endif
+stock 
+	sampex_captchagen( s_s_strlength )
+{
+    	static 
+		s_str[2], 
+		s_captcha[2048];
+    	for
+	(
+		new i; 
+		i < s_s_strlength; 
+		i++
+	) {
+        	new 
+			s_captchagen = random(2);
+        	format
+		(
+			s_str, 
+			sizeof(s_str), 
+			"%c", 
+			s_captchagen ? sampex_random(values:['A'],['Z']) : sampex_random(values:['1'],['9'])
+		);
+        	strcat(s_captcha, s_str);
+    	}
+    	return s_captcha;
+}

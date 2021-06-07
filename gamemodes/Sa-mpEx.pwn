@@ -1,7 +1,5 @@
 #include <SAMPEX.cfg>
 
-#include <SAMPEX\s_scriptentry>
-
 sampex_setmysqlstats(s_mysql:["localhost"],["root"],[""],["database"]);
 
 sampex_sql_login(strings:["Login"],["Welcome, pls input your pw to login"]);

@@ -1,43 +1,20 @@
 /*==============================================================================
 
-Let's start introducing ourselves?
+							====================
+							  Sa-mpEx Includes
+							====================
 
-I am:
+DESCRIPTION:
 
------------------------[ San Andreas MultiPlayer Extended ]---------------------
+	- Sa-mpEx library entry include.
 
-![logo](Sa-mpEx_logo.PNG)
+LEGAL:
 
-INTRODUCTION
-================
-
-- Welcome to Sa-mpEx, San Andreas MultiPlayer Extended.
-
-FUNCTION LIST
-================
-
-- Get list of Sa-mpEx functions here: 
-[Functions](https://github.com/DentisT-SAMP/Sa-mpEx/blob/main/Sa-mpEx.md)
-
-EXAMPLES
-============
-
-- See Sa-mpEx gamemode script example here:
-[Examples](https://github.com/DentisT-SAMP/Sa-mpEx/blob/master/gamemodes/example.md)
-
-HASHING SYSTEM
-=================
-
-- The library is using SAMP BCrypt hashing algorithm as default
-hashing system in Sa-mpEx playerdata module.
-
-GENERAL INFO
-================
 - Library name: Sa-mpEx
 
-- Author: DentisT 'Unity '& Brace (my scripter name)
+- Author: DEntisT 'Unity' & Brace (my scripter name)
 
-- Version of code: 1.0
+- Version of code: 1.4
 
 - Copyrights: (c) 2021. - DentisT
 
@@ -46,84 +23,60 @@ GENERAL INFO
 - Credits: me, FLY.INC, DracoBlue, streamer, Y_Less, bcrypt, Zeex, Agus
 
 - Thanks to:
-* ITB CompuPhase ( pawno, compiler, includes )
+* ITB CompuPhase ( compiler, includes )
 * SA-MP Team ( includes, actual GTA SA MOD, server )
 * ZeeX ( compiler )
 * Y_Less ( lot of ideas )
 * Aezakmi, my cousin ( support and ideas )
+* spookie ( pawno )
+* open.mp ( support )
 
 * ... and everyone who helped!
 
-WHAT'S THIS?
-===============
-
-- Info:
-* This is Sa-mpEx, open-source library for pawn SA-MP scripting!
-* This library is just extended library of SA-MP servers' actual
-"starting" library which includes a_samp.inc, float.inc - etc.
-* Sa-mpEx brings you a lot of new functions with different syntax.
-
-- What does it contain?
-* A lot of stuff... read version log for information!
-
-INSTALLATION
-================
-
-- sampctl:
-		sampctl package install DentisT-SAMP/Sa-mpEx
-
-- Without sampctl:
-* Place SAMPEX.inc and SAMPEX folder into /pawno/includes/ and
-then include it in your code typing:
-		#include < SAMPEX >
-
-TESTING
-===========
-
-- To test this, simply run the package:
-		sampctl package run
-
-WARNING
-===========
-
-- Never try to use Sa-mpEx modules separately, because all files in 
-the library are linked by different functions!
-
-USAGE
-=========
-
-- To configure Sa-mpEx, there are various config files in SAMPEX folder.
-
-VERSION LOG
-===============
-
-- Version: 1.4.0: beta
-- Published: 17. may - 2021.
-
-Changes:
-* Fixed the bug where compiler displays WARNING 217 when using OnGameModeInit hook.
-* TextDrawSetString extended function!
-* PlayerTextDrawSetString extended function!
-* fixed where sampex_cmd:testing was destroying compiler
-
-- Contains:
-SA-MP extended functions!
-Library hooks - use them to load or unload library!
-User hooks, create hook and attach hook to a public function!
-INI Core - needed to use scriptfiles!
-Math operation functions...
-New SA-MP functions!
-Fly mode!
-sampctl support
-streamer funcs
-Player data module
-Bcrypt funcs for Playerdata module (BETA feauture - contact for contribution )
-Command processor ( sampex_cmd )
-Extra functions, used by the library - not user
-
 ==============================================================================*/
 
+// test:
+
+#if defined sampex_configuration@test34
+
+// SAMPEX CONFIGURATION
+
+#define sampex_config_included
+
+// MODULES:
+
+// If you want to use functions from specific module, set to 1 - or if not to 0:
+
+#define sampex_playerdata_included            0
+#define sampex_hooks_included                 0
+#define sampex_extendeds_included             0
+#define sampex_storage_included               0
+#define sampex_game_included                  0
+#define sampex_streamer_included              0
+#define sampex_commands_included              0
+
+
+// OTHER:
+
+// If you want to get info about hooks, set it to 1:
+#define sampex_hookinfo_display 0
+
+#endif
+
 /*==========================--------[ Code ]--------==========================*/
+
+#if !defined sampex_config_included
+	#error sampex - [Error]: Configuration file not found.
+#endif
+
+#if sampex_hooks_included == 0
+#pragma warning disable 217
+#endif
+
+#if sampex_streamer_included == 1 && sampex_game_included == 0
+#pragma unused big_map_objects
+#pragma unused middlesized_map_objects
+#endif
 
 // Testing/coding mode:
 
@@ -139,6 +92,12 @@ Extra functions, used by the library - not user
 
 //#pragma warning disable 217
 #define _sampex_included 1
+
+// playerdata macros:
+
+#if sampex_include_scriptentry == 1
+#include "SAMPEX\SAMPEX_Extra\s_scriptentry.inc"
+#endif
 
 /*==========================------[ Defines ]------==========================*/
 
@@ -195,17 +154,38 @@ new sampex_version = 1;
 
 // Hooks:
 
+#if sampex_hooks_included == 0
+	#warning sampex - [Info]: SAMPEX_Hooks not included.
+#endif
+#if sampex_hooks_included == 1
+
 #include "SAMPEX\SAMPEX_Hooks\s_userhooks.inc"
 
+#endif
+
 // Extended functions:
+
+#if sampex_extendeds_included == 0
+	#warning sampex - [Info]: SAMPEX_Extendeds not included.
+#endif
+#if sampex_extendeds_included == 1
 
 #include "SAMPEX\SAMPEX_Extendeds\s_clientmsg.inc"
 #include "SAMPEX\SAMPEX_Extendeds\s_textdraws.inc"
 #include "SAMPEX\SAMPEX_Extendeds\s_gametexts.inc"
 
+#endif
+
 // INI Core:
 
+#if sampex_storage_included == 0
+	#warning sampex - [Info]: SAMPEX_Storage not included.
+#endif
+#if sampex_storage_included == 1
+
 #include "SAMPEX\SAMPEX_Storage\s_inicore.inc"
+
+#endif
 
 // Operations:
 
@@ -213,13 +193,27 @@ new sampex_version = 1;
 
 // SA-MP functions:
 
+#if sampex_game_included == 0
+	#warning sampex - [Info]: SAMPEX_Game not included.
+#endif
+#if sampex_game_included == 1
+
 #include "SAMPEX\SAMPEX_Game\s_game.inc"
 #include "SAMPEX\SAMPEX_Game\s_foreach.inc"
 #include "SAMPEX\SAMPEX_Game\s_timers.inc"
 
+#endif
+
 // Streamer functions:
 
+#if sampex_streamer_included == 0
+	#warning sampex - [Info]: SAMPEX_Streamer not included.
+#endif
+#if sampex_streamer_included == 1
+
 #include "SAMPEX\SAMPEX_Streamer\s_objects"
+
+#endif
 
 // Player data module:
 
@@ -231,4 +225,11 @@ new sampex_version = 1;
 
 // Commands module:
 
+#if sampex_commands_included == 0
+	#warning sampex - [Info]: SAMPEX_Commands not included.
+#endif
+#if sampex_commands_included == 1
+
 #include "SAMPEX\SAMPEX_Commands\s_commands_entry"
+
+#endif
