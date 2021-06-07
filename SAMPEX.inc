@@ -99,6 +99,12 @@ LEGAL:
 #include "SAMPEX\SAMPEX_Extra\s_scriptentry.inc"
 #endif
 
+// standard samp lib include:
+
+#if sampex_include_stdlib == 1
+#include <a_samp>
+#endif
+
 /*==========================------[ Defines ]------==========================*/
 
 // Version:
