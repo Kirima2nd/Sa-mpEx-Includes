@@ -1,4 +1,15 @@
-#include <SAMPEX.cfg>
+// ALERT!!!
+
+// THESE ARE SAMPEX TESTS!!! MODE CAN BE BUGGY BECAUSE OF ME TESTING IT
+// AND CHANGIG LOT OF VARIABLES AND VALUES IN IT.
+
+// DON'T USE THIS GAMEMODE UNTIL YOU'RE TESTING IT,
+// BUT IF YOU WANT TO USE Sa-mpEx DEFAULT GAMEMODE,
+// USE new.pwn FROM CODING DIRECTORY!
+
+// THANKS! :)
+
+#include <github_repo\SAMPEX.cfg>
 
 sampex_setmysqlstats(s_mysql:["localhost"],["root"],[""],["database"]);
 
@@ -8,7 +19,7 @@ sampex_sql_loginfail(strings:["u put wrong pw"]);
 
 sampex_sql_register(strings:["Register"],["Pls input ur pw to register"]);
 
-#include <SAMPEX>
+#include <github_repo\SAMPEX>
 
 main() 
 {

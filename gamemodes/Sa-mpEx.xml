@@ -209,6 +209,8 @@
 		</member>
 		<member name="F:__file">
 		</member>
+		<member name="F:__file">
+		</member>
 		<member name="F:__time">
 		</member>
 		<member name="F:gSQLHandle">
@@ -2088,6 +2090,7 @@
 			<referrer name="sampex_unset"/>
 			<referrer name="sampex_error"/>
 			<referrer name="sampex_info"/>
+			<referrer name="sampex_captchagen"/>
 			<referrer name="sampex_setpositive"/>
 			<referrer name="sampex_setnegative"/>
 			<referrer name="sampex_iterex"/>
@@ -2290,6 +2293,8 @@
 		<member name="M:printf" syntax="printf(format[], ...)">
 			<attribute name="native"/>
 			<referrer name="sampex_okay"/>
+			<referrer name="sampex_libhook_OnGameModeInit"/>
+			<referrer name="sampex_libhook_OnGameModeExit"/>
 			<referrer name="sampex_timers_OnGameModeInit"/>
 			<param name="format">
 				<paraminfo> [] </paraminfo>
@@ -2300,6 +2305,7 @@
 		</member>
 		<member name="M:random" syntax="random(max)">
 			<attribute name="native"/>
+			<referrer name="sampex_captchagen"/>
 			<referrer name="OnMySQLResponse"/>
 			<referrer name="OnPlayerPasswordHashed"/>
 			<referrer name="OnPlayerPasswordChecked"/>
@@ -2356,6 +2362,15 @@
 			</param>
 			<param name="key">
 				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:sampex_captchagen" syntax="sampex_captchagen(s_s_strlength)">
+			<stacksize value="9"/>
+			<dependency name="format"/>
+			<dependency name="random"/>
+			<dependency name="sampex_captchagen"/>
+			<dependency name="strcat"/>
+			<param name="s_s_strlength">
 			</param>
 		</member>
 		<member name="M:sampex_checkver" syntax="sampex_checkver()">
@@ -2664,6 +2679,7 @@
 			<stacksize value="307"/>
 			<dependency name="CallLocalFunction"/>
 			<dependency name="format"/>
+			<dependency name="printf"/>
 			<dependency name="sampex_info"/>
 		</member>
 		<member name="M:sampex_libhook_OnGameModeInit" syntax="sampex_libhook_OnGameModeInit()">
@@ -2671,6 +2687,7 @@
 			<stacksize value="307"/>
 			<dependency name="CallLocalFunction"/>
 			<dependency name="format"/>
+			<dependency name="printf"/>
 			<dependency name="sampex_info"/>
 		</member>
 		<member name="M:sampex_linestrip" syntax="sampex_linestrip(string[])">
@@ -3005,6 +3022,18 @@
 			<dependency name="funcidx"/>
 			<dependency name="sampex_scmd_e"/>
 			<dependency name="sampex_scmd_s"/>
+		</member>
+		<member name="M:strcat" syntax="strcat(dest[], source[], maxlength)">
+			<attribute name="native"/>
+			<referrer name="sampex_captchagen"/>
+			<param name="dest">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="maxlength">
+			</param>
 		</member>
 		<member name="M:strcmp" syntax="strcmp(string1[], string2[], ignorecase, length)">
 			<attribute name="native"/>
