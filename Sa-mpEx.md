@@ -104,3 +104,7 @@ SAMPEX (directory)
 #include <SAMPEX.cfg>
 #include <SAMPEX>
 ```
+
+## Configuration
+
+- Configuration has been recently updated, check it out: [See config docs](SAMPEX_Config/s_config_class.md)
