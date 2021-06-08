@@ -50,9 +50,56 @@
 
 ## Note ( tip )
 
+### In-app configuration
+
 - Use ``0`` which means ``false`` or ``1`` which means ``true`` to disable/enable specific module, submodule or a setting. Note that you can only modify settings and modules that are listed in application! If you try to input invalid config id, app will warn you and display an error saying:
 
 ```pawn
 sampex - Error: Wrong moduleconfig choice id.
 sampex - Info: 1 error found
+```
+
+### Linux user?
+
+- Sadly, if you're LinuxOS user, you can't modify Sa-mpEx this way!
+
+- But, don't worry. Sa-mpEx can be still modified using regular *.cfg* file in linux-config directory located in main branch of this repository!
+
+- To modify, you simply change values of defines to ``1`` or ``0`` - nothing else!
+
+***1. Configuration***
+
+```pawn
+#define sampex_include_scriptentry            0
+#define sampex_playerdata_included            0
+
+#define sampex_hooks_included                 0
+#define sampex_extendeds_included             0
+#define sampex_storage_included               0
+#define sampex_game_included                  0
+#define sampex_streamer_included              0
+#define sampex_commands_included              0
+```
+- So, where are we? In ``SAMPEX.cfg``, here we modify Sa-mpEx!
+
+- For this example, we will again enable ``scriptentry`` submodule which is currently ``OFF`` as we can see:
+
+```pawn
+#define sampex_include_scriptentry            0
+```
+
+- To enable it, simply change the zero (``0``) value to ``1``.
+
+***2. Importing settings***
+
+- To import our settings, instead of:
+
+```pawn
+#include <SAMPEX.cfg>
+```
+
+- ... we import it this way:
+
+```pawn
+#include <linux-config\SAMPEX.cfg>
 ```
